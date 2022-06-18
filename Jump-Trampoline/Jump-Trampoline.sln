@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jump-Trampoline", "Jump-Trampoline.csproj", "{912D3210-EC2A-416C-B844-B27A4DD4EB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jump-Trampoline.Tests", "..\Jump-Trampoline.Tests\Jump-Trampoline.Tests.csproj", "{D3DF60C9-BDAE-4D45-AB0C-81632C37FF55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{912D3210-EC2A-416C-B844-B27A4DD4EB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912D3210-EC2A-416C-B844-B27A4DD4EB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912D3210-EC2A-416C-B844-B27A4DD4EB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912D3210-EC2A-416C-B844-B27A4DD4EB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DF60C9-BDAE-4D45-AB0C-81632C37FF55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DF60C9-BDAE-4D45-AB0C-81632C37FF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DF60C9-BDAE-4D45-AB0C-81632C37FF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DF60C9-BDAE-4D45-AB0C-81632C37FF55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E33B10B3-E0BD-44C3-98C7-67C514D5A4FB}
+	EndGlobalSection
+EndGlobal
