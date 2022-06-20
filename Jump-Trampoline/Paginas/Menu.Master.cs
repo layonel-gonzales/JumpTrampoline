@@ -13,5 +13,17 @@ namespace Jump_Trampoline.Paginas
         {
 
         }
+
+    protected void btnArchivarNotificacion_Click(object sender, EventArgs e) {
+
     }
+
+    protected void btnEliminarNotificacion_Click(object sender, EventArgs e) {
+
+    }
+
+    protected void btnCerrarSesion_Click(object sender, EventArgs e) {
+
+    }
+  }
 }

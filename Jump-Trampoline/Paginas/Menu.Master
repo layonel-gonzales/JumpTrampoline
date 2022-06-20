@@ -1,20 +1,206 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Menu.master.cs" Inherits="Jump_Trampoline.Paginas.Menu" %>
-
 <!DOCTYPE html>
-
-<html>
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title><asp:ContentPlaceHolder runat="server" ID="headTitle"></asp:ContentPlaceHolder></title>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="#" type="image/png" />
+    <script src="https://kit.fontawesome.com/b0df700715.js" crossorigin="anonymous"></script>
+    <link href="../css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/themes.css?v='v1.0'" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-themed.css?v='v1.0'" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-tour.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="../css/estilo.css?v='v1.0'" rel="stylesheet" type="text/css" />
+    <link href="../css/all.min.css" rel="stylesheet" type="text/css" />
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/jquery-ui.min.js?v='v1.0'" type="text/javascript"></script>
+    <script src="../js/chosen.jquery.js?v='v1.0'" type="text/javascript"></script>
+    <!--Popper.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap-tour.js" type="text/javascript"></script>
+    
+    <script src="../js/utils.js" type="text/javascript"></script>
+    <script src="../js/js.cookie.min.js" type="text/javascript"></script>
+                       
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+      
+      <nav class="nav-shadow navbar fixed-top">
+        <div style="height: 54px"></div>
+        <i id="menuLateral" class="fas fa-bars cursor-pointer"></i>
+        <a class="navbar-brand navbar-brand-filter text-secondary border-right py-0 px-2 mr-0 d-none d-md-block" style="width: 250px" href="#">
+          <img src="#" height="54" />
+          <span id="separador" runat="server">|</span>
+          <img runat="server" class="ml-2" id="imgLogoClase" src="#" height="45" />
+        </a>
+
+        <h5 class="my-auto ml-3"><asp:ContentPlaceHolder runat="server" ID="titulo"></asp:ContentPlaceHolder></h5>
+        <div class="col row no-gutters px-0"><asp:ContentPlaceHolder runat="server" ID="extra"></asp:ContentPlaceHolder></div>
+
+        <ul id="tutorial-navbar" class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+          <li class="nav-item">
+            <a id="btnModoNocturno" class="nav-link counter cursor-pointer" data-toggle="tooltip" title="Modo noche" data-placement="bottom" onclick="toggleTheme();"><i class="fas fa-lg fa-moon"></i></a>
+          </li>
+
+          <li class="nav-item">
+            <a id="btnAyuda" class="nav-link cursor-pointer ml-3" data-toggle="tooltip" title="Ayuda" data-placement="bottom">
+              <i class="fa fa-lg fa-question-circle"></i>
+            </a>
+          </li>
+        
+        <!-- opciones solo de administrador -->
+      <% if(true) { %>
+          <li class="nav-item position-relative">
+            <a id="btnNotificaciones" runat="server" class="nav-link counter cursor-pointer ml-3" data-toggle="tooltip" title="Notificaciones" data-placement="bottom">
+              <i class="fas fa-lg fa-bell"></i>
+            </a>
+          </li>
+
+          <asp:HiddenField runat="server" ID="hfIdNotificacion" Value="-1" />
+          <asp:UpdatePanel runat="server" ID="upNotificaciones" UpdateMode="Conditional">
+            <ContentTemplate>
+              <asp:Button runat="server" ID="btnArchivarNotificacion" CssClass="d-none" OnClick="btnArchivarNotificacion_Click" />
+              <asp:Button runat="server" ID="btnEliminarNotificacion" CssClass="d-none" OnClick="btnEliminarNotificacion_Click" />
+            </ContentTemplate>
+            <Triggers>
+              <asp:AsyncPostBackTrigger ControlID="btnArchivarNotificacion" EventName="Click" />
+              <asp:AsyncPostBackTrigger ControlID="btnEliminarNotificacion" EventName="Click" />
+            </Triggers>
+          </asp:UpdatePanel>
+        
+          <li class="nav-item">
+            <asp:HyperLink runat="server" CssClass="nav-link ml-3" NavigateUrl="#" data-toggle="tooltip" title="Configuración" data-placement="bottom">
+              <i class="fas fa-lg fa-cog"></i>
+            </asp:HyperLink>
+          </li>
+        <% } %>
+          
+        <asp:Button runat="server" CssClass="d-none" ID="btnCerrarSesion1" OnClick="btnCerrarSesion_Click"></asp:Button>
+      </ul>
+    </nav>
+
+    <div class="nav-lateral">
+      <div class="form-row">
+        <div class="col-auto"><img runat="server" id="imgFotoPerfil" class="rounded-circle ml-3 mb-3" width="56" height="56" src="../imagenes/usuarioDefault.png" /></div>
+        <div class="col pt-1">
+          <div runat="server" class="nombre dropdown-toggle cursor-pointer" id="lbNombreUsuario" data-toggle="dropdown">Usuario<i class="fas fa-caret-down ml-2"></i></div>
+          <div class="dropdown-menu">
+            <asp:HyperLink runat="server" CssClass="dropdown-item" NavigateUrl="#"><i class="fas fa-user-cog mr-2"></i>Perfil</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="linkClases" CssClass="dropdown-item" NavigateUrl="#"><i class="fas fa-building mr-2"></i>Cambiar clase</asp:HyperLink>
+            <div class="dropdown-divider"></div>
+            <asp:LinkButton runat="server" ID="btnCerrarSesion" CssClass="dropdown-item" OnClick="btnCerrarSesion_Click"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión</asp:LinkButton>
+          </div>
+          <div runat="server" id="lbPerfil" class="text-white opacity-500 pb-3" style="font-size: .85em; line-height: 1.25em">Perfil</div>
         </div>
+      </div>
+
+      <div class="nav-content" id="tutorial-nav-lateral-navegacion">
+        <b>PRINCIPAL</b>
+        <a href="DashboardAdmin.aspx" runat="server" id="linkInicioAdmin"><i class="fas fa-home"></i>Inicio</a>
+        <a href="DashboardRendidor.aspx" runat="server" id="linkInicioRendidor"><i class="fas fa-home"></i>Inicio</a>
+        <a href="NuevaRendicion.aspx" id="linkNuevaRendicion" runat="server">
+          <i class="fas fa-edit"></i>Nueva rendición<span class="chip" runat="server" id="lbNotificacionRendicionesIncompletas"></span>
+        </a>
+        <a runat="server" id="linkRechazos" href="RendicionesDetalladas.aspx?Rechazos=True"><i class="fas fa-calendar-times"></i>Rechazos
+          <span class="chip" runat="server" id="lbNotificacionRechazos">0</span>
+        </a>
+        <a href="MisDocumentos.aspx" id="linkMisDocumentos" runat="server"><i class="fas fa-paperclip"></i>Mis documentos</a>
+        <a href="EstadosDeCuenta.aspx" id="linkEstadosCuenta" runat="server"><i class="fas fa-file-invoice-dollar"></i>Estados de cuenta</a>
+
+        <a runat="server" id="linkAprobacion" href="AdminAprobar.aspx"><i class="fas fa-tasks"></i>Aprobación
+          <span class="chip" runat="server" id="lbNotificacionAprobacion"></span>
+        </a>
+        <a runat="server" id="linkDepositos" href="AdminAjustesDepositos.aspx"><i class="fas fa-credit-card"></i>Depósitos</a>
+
+        <a runat="server" id="linkEventos" href="EventosSistema.aspx"><i class="fas fa-calendar-alt"></i>Eventos</a>
+        <a runat="server" id="lbInformes" href="#informes" data-toggle="collapse"><i class="fas fa-archive"></i>Informes <i class="fas fa-caret-down"></i></a>
+        <div id="informes" class="collapse menu-lateral-dropdown">
+          <b runat="server" id="lbInformesRendiciones">RENDICIONES</b>
+          <a runat="server" id="linkRendicionesDetalladas" href="RendicionesDetalladas.aspx"><i class="fas fa-table"></i>Rendiciones detalladas</a>
+          <a runat="server" id="linkRendicionesAprobadas" href="RendicionesAprobadas.aspx"><i class="fas fa-clipboard-list-check" style="float: left; height: 30px; margin-top: 5px;"></i>Rendiciones aprobadas/rechazadas</a>
+          <a runat="server" id="linkReporteIach" href="ReporteIach.aspx"><i class="fas fa-table"></i>Informe Consolidación Bancaria</a>
+          <a runat="server" id="linkSaldosPendientes" href="SaldosPendientes.aspx"><i class="fas fa-search-dollar"></i>Saldos pendientes</a>
+          <a runat="server" id="linkRendicionesPorPresupuesto" href="RendicionPorPresupuesto.aspx"><i class="fas fa-list-alt"></i>Rendiciones por presupuesto</a>
+          <a runat="server" id="linkNominaRendiciones" href="NominaRendiciones.aspx"><i class="fas fa-calculator"></i>Nóminas de rendiciones</a>
+
+          <b runat="server" id="lbInformesPresupuesto">PRESUPUESTOS</b>
+          <a runat="server" id="linkMisPresupuestos" href="MisPresupuestos.aspx"><i class="fas fa-chart-pie"></i>Mis presupuestos</a>
+          <a runat="server" id="linkConsolidadoPresupuestos" href="ConsolidadoPresupuesto.aspx"><i class="fas fa-list-alt"></i>Consolidado de presupuestos</a>
+          <a runat="server" id="linkMontosPorPresupuesto" href="MontosPorPresupuesto.aspx"><i class="fas fa-list-alt"></i>Montos por presupuestos</a>
+
+          <b runat="server" id="lbInformesIngresos">CARTOLAS</b>
+          <a runat="server" id="linkIngresosDetallados" href="ReporteIngresoCartola.aspx"><i class="fas fa-table"></i>Ingresos detallados</a>
+
+          <b runat="server" id="lbInformesDeposito">DEPÓSITOS</b>
+          <a runat="server" id="linkDepositosDetallados" href="DepositosDetallados.aspx"><i class="fas fa-table"></i>Depósitos detallados</a>
+          <a runat="server" id="linkDepositosPorPresupuesto" href="InformeDepositos.aspx"><i class="fas fa-list-alt"></i>Depósitos por presupuesto</a>
+          <a runat="server" id="linkNominasDeposito" href="NominasDeposito.aspx"><i class="fas fa-calculator"></i>Nóminas de depósitos</a>
+
+          <b runat="server" id="lbInformesMiscelaneo">MISCELÁNEO</b>
+          <a runat="server" id="linkGastosCategorias" href="GastosCategoria.aspx"><i class="fas fa-table"></i>Gastos por categoría</a>
+          <a runat="server" id="linkReportePresupuestosSinDepositos" href="ReportePresupuestoSinDeposito.aspx"><i class="fas fa-table"></i>Presupuestos sin despósitos</a>
+          <a runat="server" id="linkPresupuestosActuales" href="InformePresupuestosActuales.aspx"><i class="fas fa-table"></i>Informe para Clientes OCL</a>
+        </div>
+      </div>
+
+      <div class="nav-content">
+        <b runat="server" id="lbConfiguracion">CONFIGURACIÓN</b>
+        <a runat="server" id="lbValidaciones" href="#validaciones" data-toggle="collapse"><i class="fas fa-check"></i>Validaciones <i class="fas fa-caret-down"></i></a>
+        <div id="validaciones" class="collapse menu-lateral-dropdown">
+          <a runat="server" id="linkValidacionPorRendicion" href="AdminAjustesValidaciones.aspx"><i class="fas fa-calendar-check"></i>Por rendición</a>
+          <a runat="server" id="linkValidacionPorCategoria" href="AdminAjustesValidacionesPresupuesto.aspx"><i class="fas fa-clipboard-check"></i>Por categorías</a>
+        </div>
+
+        <a runat="server" id="lbAjustes" href="#ajustes" data-toggle="collapse"><i class="fas fa-cogs"></i>Ajustes <i class="fas fa-caret-down"></i></a>
+        <div id="ajustes" class="collapse menu-lateral-dropdown">
+          <b runat="server" id="lbAjustesAdministracion">ADMINISTRACIÓN</b>
+          <a runat="server" id="linkAjusteAuditoriaRendiciones" href="AdminAjustesAuditoria.aspx"><i class="fas fa-user-crown"></i>Auditoría de rendiciones</a>
+          <a runat="server" id="linkAjusteAuditoriaDepositos" href="AdminAjustesAuditoriaDepositos.aspx"><i class="fas fa-user-crown"></i>Auditoría de depósitos</a>
+          <a runat="server" id="linkAjustePerfil" href="AdminAjustesPerfiles.aspx"><i class="fas fa-key"></i>Perfiles</a>
+          <a runat="server" id="linkAjusteFlujoAprobacion" href="AdminAjustesFlujoAprobacion.aspx"><i class="fas fa-project-diagram"></i>Flujos de aprobación</a>
+          <a runat="server" id="linkAjusteAsignacionAprobacion" href="AdminAjustesAsignacionAprobadorEquipo.aspx"><i class="fas fa-user-check"></i>Asignación de aprobación</a>
+          <a runat="server" id="linkAjustePresupuesto" href="AdminAjustesPresupuesto.aspx"><i class="fas fa-money-bill-alt"></i>Presupuestos</a>
+
+          <div id="tutorial-nav-lateral-organizacion">
+            <b runat="server" id="lbAjustesOrganizacion">ORGANIZACIÓN</b>
+            <a runat="server" id="lbCentrosCosto" href="#centros-costo" data-toggle="collapse"><i class="fas fa-box"></i>Centros de costo <i class="fas fa-caret-down"></i></a>
+            <div id="centros-costo" class="collapse menu-lateral-dropdown">
+              <a runat="server" id="linkAjustesEsquemaCentroCosto" href="AdminAjustesEsquemaCentroCosto.aspx"><i class="fas fa-box"></i>Esquemas</a>
+            </div>
+            <a runat="server" id="linkAjusteEquipo" href="AdminAjustesEquipo.aspx"><i class="fas fa-boxes"></i>Equipos</a>
+            <a runat="server" id="linkAjusteUsuario" href="AdminAjustesUsuario.aspx"><i class="fas fa-users"></i>Usuarios</a>
+          </div>
+
+          <b runat="server" id="lbAjustesParametrizacion">PARAMETRIZACIÓN</b>
+          <a runat="server" id="linkAjusteCategoria" href="AdminAjustesCategoria.aspx"><i class="fas fa-chart-pie"></i>Categorías y tipos de gasto</a>
+          <a runat="server" id="linkAjusteMotivoRechazo" href="AdminAjustesMotivosRechazo.aspx"><i class="fas fa-times-circle"></i>Motivos de rechazo</a>
+          <a runat="server" id="linkAjusteDocumento" href="AdminAjustesDocumento.aspx"><i class="fas fa-file-alt"></i>Tipos de documentos</a>
+          <a runat="server" id="linkAjusteProveedor" href="AdminAjustesProveedores.aspx"><i class="fas fa-dolly"></i>Proveedores</a>
+        </div>
+
+        <a runat="server" id="lbDebug" href="#debug" data-toggle="collapse"><i class="fas fa-bug"></i>Debug <i class="fas fa-caret-down"></i></a>
+        <div id="debug" class="collapse menu-lateral-dropdown">
+          <a runat="server" id="linkDebugVisorDB" href="DebugAdminBD.aspx"><i class="fas fa-database"></i>Bases de datos</a>
+          <a runat="server" id="linkDebugIntegridadDatos" href="DebugIntegridadDatos.aspx"><i class="fas fa-broom"></i>Integridad de datos</a>
+          <a runat="server" id="linkDebugAdministracionUsuarios" href="DebugAdministracionUsuarios.aspx"><i class="fas fa-users-cog"></i>Cuentas y login</a>
+          <a runat="server" id="linkDebugEmpresas" href="DebugEmpresas.aspx"><i class="fas fa-building"></i>Empresas</a>
+          <a runat="server" id="linkDebugRestAPI" href="DebugRestAPI.aspx"><i class="fas fa-cloud"></i>REST API</a>
+          <a runat="server" id="linkRegistroLogin" href="RegistroAccesoUsuario.aspx"><i class="fal fa-ballot-check"></i>Registro de sesiones</a>
+        </div>
+      </div>
+
+      <div class="espacio"></div>
+    </div>
+
+        <div class="contenedor" id="tutorial-contenedor"><asp:ContentPlaceHolder ID="c" runat="server"></asp:ContentPlaceHolder></div>
     </form>
 </body>
 </html>
