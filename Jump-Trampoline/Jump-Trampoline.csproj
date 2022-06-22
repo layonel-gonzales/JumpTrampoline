@@ -158,10 +158,12 @@
     <Content Include="Paginas\InicioSesion.aspx" />
     <Content Include="Paginas\Menu.Master" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Paginas\RecuperarContrasena.aspx" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <Content Include="UserControl\Mensaje.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -169,10 +171,14 @@
     <Compile Include="Clase.cs" />
     <Compile Include="Deporte.cs" />
     <Compile Include="Horario.cs" />
-    <Compile Include="login.cs" />
+    <Compile Include="LoginUsuario.cs" />
     <Compile Include="Migrations\202206201942060_initial.cs" />
     <Compile Include="Migrations\202206201942060_initial.designer.cs">
       <DependentUpon>202206201942060_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206210038349_CambioNombreLogin.cs" />
+    <Compile Include="Migrations\202206210038349_CambioNombreLogin.designer.cs">
+      <DependentUpon>202206210038349_CambioNombreLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Paginas\Home.aspx.cs">
@@ -196,14 +202,30 @@
     <Compile Include="Paginas\Menu.Master.designer.cs">
       <DependentUpon>Menu.Master</DependentUpon>
     </Compile>
+    <Compile Include="Paginas\RecuperarContrasena.aspx.cs">
+      <DependentUpon>RecuperarContrasena.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\RecuperarContrasena.aspx.designer.cs">
+      <DependentUpon>RecuperarContrasena.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sede.cs" />
     <Compile Include="TipoUsuario.cs" />
+    <Compile Include="UserControl\Mensaje.ascx.cs">
+      <DependentUpon>Mensaje.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Mensaje.ascx.designer.cs">
+      <DependentUpon>Mensaje.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="Utilidades\Constantes.cs" />
     <Compile Include="Utilidades\Encrypt.cs" />
+    <Compile Include="Utilidades\Errores.cs" />
     <Compile Include="Utilidades\Extensiones.cs" />
     <Compile Include="Utilidades\GridViewUtils.cs" />
+    <Compile Include="Utilidades\Sesion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -219,11 +241,13 @@
   <ItemGroup>
     <Folder Include="ConsultasEstaticas\" />
     <Folder Include="ConsultasGenerales\" />
-    <Folder Include="UserControl\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202206201942060_initial.resx">
       <DependentUpon>202206201942060_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206210038349_CambioNombreLogin.resx">
+      <DependentUpon>202206210038349_CambioNombreLogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

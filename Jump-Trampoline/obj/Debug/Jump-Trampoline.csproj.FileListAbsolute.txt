@@ -85,3 +85,4 @@ C:\Users\aniba\Desktop\Proyecto Jump-Trampoline\Jump-Trampoline\bin\Newtonsoft.J
 C:\Users\aniba\Desktop\Proyecto Jump-Trampoline\Jump-Trampoline\bin\System.ValueTuple.xml
 C:\Users\aniba\Desktop\Proyecto Jump-Trampoline\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.initial.resources
 C:\Users\aniba\Desktop\Proyecto Jump-Trampoline\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.GenerateResource.cache
+C:\Users\aniba\Desktop\Proyecto Jump-Trampoline\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.CambioNombreLogin.resources

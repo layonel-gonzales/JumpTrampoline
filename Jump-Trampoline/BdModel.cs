@@ -12,7 +12,7 @@ namespace Jump_Trampoline {
     public virtual DbSet<Clase> Clase { get; set; }
     public virtual DbSet<Deporte> Deporte { get; set; }
     public virtual DbSet<Horario> Horario { get; set; }
-    public virtual DbSet<login> login { get; set; }
+    public virtual DbSet<LoginUsuario> login { get; set; }
     public virtual DbSet<Sede> Sede { get; set; }
     public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
     public virtual DbSet<Usuario> Usuario { get; set; }
@@ -30,11 +30,11 @@ namespace Jump_Trampoline {
           .Property(e => e.Dias)
           .IsUnicode(false);
 
-      modelBuilder.Entity<login>()
+      modelBuilder.Entity<LoginUsuario>()
           .Property(e => e.correo)
           .IsUnicode(false);
 
-      modelBuilder.Entity<login>()
+      modelBuilder.Entity<LoginUsuario>()
           .Property(e => e.usuario)
           .IsUnicode(false);
 
