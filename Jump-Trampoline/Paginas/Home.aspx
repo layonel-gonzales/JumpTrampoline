@@ -8,4 +8,9 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="extra" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="c" runat="server">
+    <div class="p-2 w-100">
+        <div id="contVideo">            
+        </div>
+    </div>
+    
 </asp:Content>

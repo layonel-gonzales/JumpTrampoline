@@ -16,6 +16,7 @@ namespace Jump_Trampoline {
     public virtual DbSet<Sede> Sede { get; set; }
     public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
     public virtual DbSet<Usuario> Usuario { get; set; }
+    public virtual DbSet<VideosYoutube> VideosYoutube { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder) {
       modelBuilder.Entity<Deporte>()
