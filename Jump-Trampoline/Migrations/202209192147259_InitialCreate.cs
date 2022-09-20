@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -12,13 +12,11 @@
                 c => new
                     {
                         IdClase = c.Int(nullable: false, identity: true),
-                        Instructor = c.Int(),
+                        NombreClase = c.String(),
                         CantidadAlumnos = c.Int(),
-                        Fecha = c.DateTime(),
                         HoraInicio = c.DateTime(),
                         HoraTermino = c.DateTime(),
-                        Fk_IdLista = c.Int(),
-                        Fk_IdSede = c.Int(),
+                        Precio = c.Int(),
                     })
                 .PrimaryKey(t => t.IdClase);
             
@@ -45,7 +43,7 @@
                 .PrimaryKey(t => t.IdHorario);
             
             CreateTable(
-                "dbo.login",
+                "dbo.LoginUsuario",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -96,14 +94,26 @@
                     })
                 .PrimaryKey(t => t.IdUsuario);
             
+            CreateTable(
+                "dbo.VideosYoutube",
+                c => new
+                    {
+                        IdVideo = c.Int(nullable: false, identity: true),
+                        NombreVideo = c.String(maxLength: 300),
+                        Url = c.String(maxLength: 800),
+                        FechaCreacion = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.IdVideo);
+            
         }
         
         public override void Down()
         {
+            DropTable("dbo.VideosYoutube");
             DropTable("dbo.Usuario");
             DropTable("dbo.TipoUsuario");
             DropTable("dbo.Sede");
-            DropTable("dbo.login");
+            DropTable("dbo.LoginUsuario");
             DropTable("dbo.Horario");
             DropTable("dbo.Deporte");
             DropTable("dbo.Clase");

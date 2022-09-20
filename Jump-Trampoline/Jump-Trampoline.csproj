@@ -154,6 +154,7 @@
     <Content Include="js\js.cookie.min.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="js\utils.js" />
+    <Content Include="Paginas\AjustesVideos.aspx" />
     <Content Include="Paginas\Home.aspx" />
     <Content Include="Paginas\InicioSesion.aspx" />
     <Content Include="Paginas\Menu.Master" />
@@ -173,23 +174,18 @@
     <Compile Include="Deporte.cs" />
     <Compile Include="Horario.cs" />
     <Compile Include="LoginUsuario.cs" />
-    <Compile Include="Migrations\202206201942060_initial.cs" />
-    <Compile Include="Migrations\202206201942060_initial.designer.cs">
-      <DependentUpon>202206201942060_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202206210038349_CambioNombreLogin.cs" />
-    <Compile Include="Migrations\202206210038349_CambioNombreLogin.designer.cs">
-      <DependentUpon>202206210038349_CambioNombreLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209170009512_SeAgregaTablaparaMostrarVideos.cs" />
-    <Compile Include="Migrations\202209170009512_SeAgregaTablaparaMostrarVideos.designer.cs">
-      <DependentUpon>202209170009512_SeAgregaTablaparaMostrarVideos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202209172328557_SeRealizaCambiosTablaClase.cs" />
-    <Compile Include="Migrations\202209172328557_SeRealizaCambiosTablaClase.designer.cs">
-      <DependentUpon>202209172328557_SeRealizaCambiosTablaClase.cs</DependentUpon>
+    <Compile Include="Migrations\202209192147259_InitialCreate.cs" />
+    <Compile Include="Migrations\202209192147259_InitialCreate.designer.cs">
+      <DependentUpon>202209192147259_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Paginas\AjustesVideos.aspx.cs">
+      <DependentUpon>AjustesVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\AjustesVideos.aspx.designer.cs">
+      <DependentUpon>AjustesVideos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -260,17 +256,8 @@
     <Folder Include="ConsultasGenerales\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202206201942060_initial.resx">
-      <DependentUpon>202206201942060_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202206210038349_CambioNombreLogin.resx">
-      <DependentUpon>202206210038349_CambioNombreLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209170009512_SeAgregaTablaparaMostrarVideos.resx">
-      <DependentUpon>202209170009512_SeAgregaTablaparaMostrarVideos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209172328557_SeRealizaCambiosTablaClase.resx">
-      <DependentUpon>202209172328557_SeRealizaCambiosTablaClase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202209192147259_InitialCreate.resx">
+      <DependentUpon>202209192147259_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

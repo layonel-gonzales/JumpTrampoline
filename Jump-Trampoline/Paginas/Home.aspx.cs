@@ -1,7 +1,7 @@
-﻿using Jump_Trampoline.Migrations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,11 +18,17 @@ namespace Jump_Trampoline.Paginas {
     private void MostrarVideos() {
             using (var db = new BdModel()) {
                 var listaVideos = (from v in db.VideosYoutube select v).ToList();
-
+                StringBuilder sb = new StringBuilder();
                 foreach (var item in listaVideos) {
-                    item.Url.Replace("width=\"560\" height=\"315\"", "width=\"360\" height=\"215\"");
+                    item.Url.Replace("560", "360");
+                    sb.Append("<div class='m-2 d-inline-block'>");
+                    sb.Append(item.Url);
+                    sb.Append("</div>");
                 }
+                contVideo.InnerHtml= sb.ToString();
+
+
             }
-    }
+        }
   }
 }

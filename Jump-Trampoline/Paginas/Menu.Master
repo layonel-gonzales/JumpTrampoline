@@ -30,8 +30,68 @@
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
+
+    <script type="text/javascript">
+        $(document).ready(function () { 
+
+            //recuperamos el sitio seleccionado y marcamos el menu
+            var path = window.location.href.split("/").pop();
+            if (path == '') {path = 'Home.aspx'; }// iniciamos marcando el menu home por default
+            var target = $('.nav-content a[href="' + path + '"]');
+            target.addClass('active');
+
+            //Fix para múltiples modales sobrepuestos
+            var visibleModals = 0;
+            $(document).on('show.bs.modal', '.modal', function () {
+                visibleModals++;
+                var zIndex = 1040 + (10 * visibleModals);
+                $(this).css('z-index', zIndex);
+                setTimeout(function () {
+                    $('.modal-backdrop').not('.modal-stack').first().css('z-index', zIndex - 1).addClass('modal-stack');
+                }, 0);
+            });
+
+            //Fix para hacer scroll de un modal después de cerrar uno superior
+            $(document).on('hidden.bs.modal', '.modal', function () {
+                visibleModals--;
+                visibleModals > 0 && $(document.body).addClass('modal-open');
+            });
+
+            setTimeout(function () {
+                if ($('#btnAyuda').hasEvent('click')) $('#btnAyuda').removeClass('d-none');
+                else $('#btnAyuda').addClass('d-none');
+            }, 1);
+
+            // mostramos y ocultamos el menu lateral
+            $('#menuLateral').click(function () {
+                $('.nav-lateral, #backdropNavLateral').toggleClass('close-nav');
+                $('.contenedor, #backdropContenedor').toggleClass('full');
+            });
+
+        });
+    </script>
+
     <form id="form1" runat="server">
       <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+       <!-- Script para mantener el scroll de pantalla en postback -->
+    <asp:HiddenField runat="server" ID="hfPosition" Value="" />
+    <script type="text/javascript">
+        $(function () {
+            var f = $("#<%=hfPosition.ClientID%>");
+
+            window.onscroll = function () {
+                var position = $(window).scrollTop();
+                f.val(position);
+            };
+
+          // Si se necesita más rápido, podría implementar que se ejecute cuando el readyState es interactive... Que es apenas se puede hacer click...
+          var position = parseInt(f.val());
+          if (!isNaN(position)) {
+              $(window).scrollTop(position);
+          }
+      });
+    </script>
       
       <nav class="nav-shadow navbar fixed-top">
         <div style="height: 54px"></div>
@@ -101,18 +161,19 @@
           <div runat="server" id="lbPerfil" class="text-white opacity-500 pb-3" style="font-size: .85em; line-height: 1.25em">Perfil</div>
         </div>
       </div>
-
+        
       <div class="nav-content" id="tutorial-nav-lateral-navegacion">
-        <b>PRINCIPAL</b>
-        <a href="Home.aspx" runat="server" id="linkHome"><i class="fas fa-home"></i>Home</a>
-        <a href="Clases.aspx" runat="server" id="linkClases"><i class="fas fa-home"></i>Clases</a>
+          <b>PRINCIPAL</b>
+          <a href="Home.aspx" runat="server" id="linkHome"><i class="fas fa-home"></i>Home</a>
+          <a href="Clases.aspx" runat="server" id="linkClases"><i class="fas fa-home"></i>Clases</a>
+          
+          <a href="AjustesVideos.aspx" runat="server" id="A1"><i class="fas fa-home"></i>Mantenedor-Videos</a>    
 
-        <a href="Clases.aspx" runat="server" id="A1"><i class="fas fa-home"></i>Mantenedor-Clases</a>    
-
-      <div class="espacio"></div>
+          <div class="espacio"></div>
+      </div>
     </div>
 
-        <div class="contenedor" id="tutorial-contenedor"><asp:ContentPlaceHolder ID="c" runat="server"></asp:ContentPlaceHolder></div>
-    </form>
+    <div class="contenedor" id="tutorial-contenedor"><asp:ContentPlaceHolder ID="c" runat="server"></asp:ContentPlaceHolder></div>
+  </form>
 </body>
 </html>

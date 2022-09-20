@@ -7,13 +7,13 @@ namespace Jump_Trampoline.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class SeRealizaCambiosTablaClase : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SeRealizaCambiosTablaClase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202209172328557_SeRealizaCambiosTablaClase"; }
+            get { return "202209192147259_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

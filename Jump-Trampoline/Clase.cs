@@ -16,18 +16,13 @@ namespace Jump_Trampoline
         public int IdClase { get; set; }
 
         public string NombreClase { get; set; }
-
         public int? CantidadAlumnos { get; set; }
 
         public DateTime? HoraInicio { get; set; }
 
-        public DateTime? HoraTermino { get; set; }
+        public DateTime? HoraTermino { get; set; }      
 
         public int? Precio { get; set; }
-
-        public int? Fk_IdSede { get; set; }
-
-        public int? Fk_IdLista { get; set; }
         
     }
 }

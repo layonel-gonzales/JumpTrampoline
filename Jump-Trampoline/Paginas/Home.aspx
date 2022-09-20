@@ -6,11 +6,11 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="extra" runat="server">
+    que onda chiki
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="c" runat="server">
     <div class="p-2 w-100">
-        <div id="contVideo">            
+        <div id="contVideo" runat="server" class="w-100 h-100">            
         </div>
     </div>
-    
 </asp:Content>
