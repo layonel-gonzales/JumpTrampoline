@@ -178,6 +178,10 @@
     <Compile Include="Migrations\202209192147259_InitialCreate.designer.cs">
       <DependentUpon>202209192147259_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209210221128_SeAgregaIndEstadoTablaVideo.cs" />
+    <Compile Include="Migrations\202209210221128_SeAgregaIndEstadoTablaVideo.designer.cs">
+      <DependentUpon>202209210221128_SeAgregaIndEstadoTablaVideo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Paginas\AjustesVideos.aspx.cs">
       <DependentUpon>AjustesVideos.aspx</DependentUpon>
@@ -221,6 +225,7 @@
     <Compile Include="Paginas\Clases.aspx.designer.cs">
       <DependentUpon>Clases.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Plantillas\PagerTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sede.cs" />
     <Compile Include="TipoUsuario.cs" />
@@ -258,6 +263,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202209192147259_InitialCreate.resx">
       <DependentUpon>202209192147259_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209210221128_SeAgregaIndEstadoTablaVideo.resx">
+      <DependentUpon>202209210221128_SeAgregaIndEstadoTablaVideo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

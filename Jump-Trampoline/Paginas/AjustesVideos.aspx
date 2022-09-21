@@ -11,40 +11,43 @@
 
   <script type="text/javascript">
 
-        $(document).ready(function () {
-            $('#btnLimpiarBuscar').click(function () {
-                $('#<%=txtBuscarVideo.ClientID%>').val("")
-                eval($('#<%=btnBuscarVideo.ClientID%>').attr('href'))
-                $('#<%=btnBuscarVideo.ClientID%>').click()
-                $('#btnLimpiarBuscar').hide()
+      $(document).ready(function () {
+          $('#btnLimpiarBuscar').click(function () {
+              $('#<%=txtBuscarVideo.ClientID%>').val("")
+              eval($('#<%=btnBuscarVideo.ClientID%>').attr('href'))
+              $('#<%=btnBuscarVideo.ClientID%>').click()
+              $('#btnLimpiarBuscar').hide()
 
-            });
-        });
+          });
+      });
 
-        function mostrarOcultar() {
-          if($('#<%=txtBuscarVideo.ClientID%>').val().length>0) {
-            $('#btnLimpiarBuscar').show()
-            $('#btnLimpiarBuscar span').addClass('estilo-limpiar-texto')
-          } else {
-            $('#btnLimpiarBuscar').hide()
-          }
+      function mostrarOcultar() {
+        if($('#<%=txtBuscarVideo.ClientID%>').val().length>0) {
+          $('#btnLimpiarBuscar').show()
+          $('#btnLimpiarBuscar span').addClass('estilo-limpiar-texto')
+        } else {
+          $('#btnLimpiarBuscar').hide()
         }
+      }
 
-        function cambiarBordeR() {
-          $('#btnLimpiarBuscar span').css('border-color','#f46c64');
-        }
+      function cambiarBordeR() {
+        $('#btnLimpiarBuscar span').css('border-color','#f46c64');
+      }
 
-        function cambiarBordeO() {
-          $('#btnLimpiarBuscar span').css('border-color','var(--form-control-border)');
-        }
+      function cambiarBordeO() {
+        $('#btnLimpiarBuscar span').css('border-color','var(--form-control-border)');
+      }
 
-        function validarFormulario(group) {
-            $(".botonIngresarAlmacen").addClass('d-none');
-            $(".botonEditarAlmacen").addClass('d-none');
+      function validarFormulario(group) {
+          console.log("entra");
+            $(".botonIngresarVideo").addClass('d-none');
+            $(".botonEditarVideo").addClass('d-none');
             if (DoPageClientValidate(group)) {
                 if (DoPageClientValidate("Advertencias" + group)) {
+                    console.log("true");
                     $(".boton" + group).click();
                 } else {
+                    console.log("false");
                     $('#modalAdvertencias').modal('show');
                     $(".boton" + group).removeClass('d-none');
                 }
@@ -105,6 +108,32 @@
     
     <div class="espacio"></div>
   </div>
+
+  <!-- MODAL ADVERTENCIAS -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="modalAdvertencias">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title">Advertencia</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Se encontraron las siguientes advertencias:</p>
+
+          <p>¿Está seguro de ingresar estos valores?</p>
+        </div>
+        <div class="modal-footer">
+          <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-warning botonIngresarVideo"
+            Text="Sí, estoy seguro" ValidationGroup="IngresarVideo" OnClick="btnAgregar_Click" />
+          <asp:Button ID="btnGuardarCambios" runat="server" ValidationGroup="EditarVideo"
+            CssClass="btn btn-warning botonEditarVideo" OnClick="btnGuardarCambios_Click" Text="Sí, estoy seguro" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <div class="col-md-6">
     <div class="row no-gutters mb-2">
@@ -131,7 +160,7 @@
        OnPageIndexChanging="grdVideo_PageIndexChanging">
        <Columns>
          <asp:BoundField HeaderText="Nombre" DataField="Nombre" SortExpression="Nombre" />
-         <asp:BoundField HeaderText="Código" DataField="Codigo" SortExpression="Codigo" />
+         <asp:BoundField HeaderText="Url" DataField="Url" SortExpression="Url" />
          <asp:TemplateField HeaderText="Acciones" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
            <ItemTemplate>
              <div style="width: 80px;" class='<%#Eval("IndEstado").ToString() == "V" ? "" : "d-none" %>'>

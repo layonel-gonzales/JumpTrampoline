@@ -16,5 +16,8 @@
         [StringLength(800)]
         public string Url { get; set; }
         public DateTime FechaCreacion { get; set; }
+        
+        [StringLength(1)]
+        public string IndEstado { get; set; }
     }
 }

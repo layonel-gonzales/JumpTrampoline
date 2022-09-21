@@ -168,6 +168,7 @@ C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\bin\System
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.AssemblyReference.cache
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.InitialCreate.resources
+C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.SeAgregaIndEstadoTablaVideo.resources
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.GenerateResource.cache
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.CoreCompileInputs.cache
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.CopyComplete
