@@ -34,8 +34,9 @@ namespace Jump_Trampoline.Paginas {
                                    }).ToList();
 
                 if (listaVideos.Count > 0) {
-                    grdVideo.DataSource = listaVideos;
-                    grdVideo.DataBind();
+                    grdVideo.SetStaticPageIndex(0);
+                    grdVideo.SetStaticDataTable(listaVideos.ToDataTable());
+                    grdVideo.ApplyChanges();
                 }
                 
             }
@@ -51,12 +52,9 @@ namespace Jump_Trampoline.Paginas {
                 VideosYoutube video = db.VideosYoutube.Find(idVideo);
 
                 if (e.CommandName == "Editar") {
-                    //hfIdMaterial.Value = idMaterial.ToString();
-                    txtNombre.Text = video.NombreVideo;
-                    txtUrl.Text=video.Url;
-
-                    //CargarTablaMateriales(txtBuscarMaterial.Text, idMaterial);
-                    ScriptManager.RegisterStartupScript(grdVideo, GetType(), Guid.NewGuid().ToString(), "$('#modalEditarVideo').modal('show');", true);
+                    txtEditarNombre.Text = video.NombreVideo;
+                    txtEditarUrl.Text=video.Url;
+                    ClientScript.RegisterStartupScript(GetType(), Guid.NewGuid().ToString(), "openModal();", true);
                 }
             }
         }
@@ -101,6 +99,10 @@ namespace Jump_Trampoline.Paginas {
         protected void btnGuardarCambios_Click(object sender, EventArgs e) {
             
             
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e) {
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Menu.Master" AutoEventWireup="true" CodeBehind="AjustesVideos.aspx.cs" Inherits="Jump_Trampoline.Paginas.AjustesVideos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Paginas/Menu.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="AjustesVideos.aspx.cs" Inherits="Jump_Trampoline.Paginas.AjustesVideos" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="headTitle" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
@@ -17,8 +18,7 @@
               eval($('#<%=btnBuscarVideo.ClientID%>').attr('href'))
               $('#<%=btnBuscarVideo.ClientID%>').click()
               $('#btnLimpiarBuscar').hide()
-
-          });
+          });          
       });
 
       function mostrarOcultar() {
@@ -54,23 +54,28 @@
             }
       }
 
-        function eliminarAlmacen(idUsuario, nombre) {
+      function eliminarAlmacen(idUsuario, nombre) {
            
-        }
+      }
 
-        function validarRepeticionCodigo(oSrc, args) {
-            if (arrayCodigos) {
-                for (var i = 0; i < arrayCodigos.length; i++) {
-                    if (arrayCodigos[i] == args.Value) {
-                        args.IsValid = false;
-                        $('#advCodigo').removeClass('d-none').html(' - El código de video <b>' + args.Value + '</b> ya existe');
-                        return;
-                    }
-                }
-                args.IsValid = true;
-                $('#advCodigo').addClass('d-none');
-            }
-        }
+      function openModal() {
+          console.log('entro');
+          $("#modalEditarVideo").modal('show');        
+      }
+
+      function validarRepeticionCodigo(oSrc, args) {
+          if (arrayCodigos) {
+              for (var i = 0; i < arrayCodigos.length; i++) {
+                  if (arrayCodigos[i] == args.Value) {
+                      args.IsValid = false;
+                      $('#advCodigo').removeClass('d-none').html(' - El código de video <b>' + args.Value + '</b> ya existe');
+                      return;
+                  }
+              }
+              args.IsValid = true;
+              $('#advCodigo').addClass('d-none');
+          }
+      }
   </script>
 
   <div class="row p-3">
@@ -79,7 +84,7 @@
      <div class="form-row">
        <div class="form-group col-md-6">
          <label>Nombre :</label>
-         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" MaxLength="50"></asp:TextBox>
+         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control txtNombre" MaxLength="50"></asp:TextBox>
          <asp:RequiredFieldValidator ID="rfvNombre" runat="server"
            ControlToValidate="txtNombre" CssClass="error-input" Display="Dynamic"
            ErrorMessage="Debe ingresar el nombre del video"
@@ -90,7 +95,7 @@
   
        <div class="form-group col-md-12">
          <label>Url :</label>
-         <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control"></asp:TextBox>
+         <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control" Rows="4" style="resize:none;" TextMode="MultiLine"></asp:TextBox>
          <asp:RequiredFieldValidator ID="rfvUrl" runat="server"
            ControlToValidate="txtUrl" CssClass="error-input" Display="Dynamic"
            ErrorMessage="Debe ingresar la URL del video"
@@ -107,6 +112,53 @@
     </div>
     
     <div class="espacio"></div>
+  </div>
+
+  <!-- MODAL EDITAR DEPOSITO -->
+  <div class="modal fade" id="modalEditarVideo" >
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Editar video</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Nombre :</label>
+              <asp:TextBox ID="txtEditarNombre" runat="server" CssClass="form-control" ></asp:TextBox>
+              <asp:RequiredFieldValidator ID="rfvEditarNombre" runat="server"
+                ControlToValidate="txtEditarNombre" CssClass="error-input" Display="Dynamic"
+                ErrorMessage="Debe ingresar el nombre del video"
+                ValidationGroup="EditarVideo"
+                ForeColor="Red">
+              </asp:RequiredFieldValidator>
+            </div>
+  
+            <div class="form-group col-md-12">
+              <label>Url :</label>
+              <asp:TextBox ID="txtEditarUrl" runat="server" CssClass="form-control" Rows="4" style="resize:none;" TextMode="MultiLine"></asp:TextBox>
+              <asp:RequiredFieldValidator ID="rfvEditarUrl" runat="server"
+                ControlToValidate="txtEditarUrl" CssClass="error-input" Display="Dynamic"
+                ErrorMessage="Debe ingresar la URL del video"
+                ValidationGroup="EditarVideo"
+                ForeColor="Red">
+              </asp:RequiredFieldValidator>
+            </div>      
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <asp:Button runat="server" ID="btnGuardar" CssClass="btn btn-primary" ValidationGroup="EditarVideo"
+            OnClick="btnGuardar_Click" Text="Guardar cambios" />
+          <asp:HiddenField runat="server" ID="hfIdEditarVideo" Value="-1" />
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- MODAL ADVERTENCIAS -->

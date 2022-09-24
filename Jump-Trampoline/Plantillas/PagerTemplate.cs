@@ -84,7 +84,6 @@ namespace Jump_Trampoline.Plantillas {
             HtmlGenericControl spanResuts = new HtmlGenericControl("small");
             spanResuts.AddClass("text-muted mt-1");
             spanResuts.Attributes.Add("style", "display:block; width:100%; text-align:center;");
-            DataTable dt = AssociatedGridView.GetStaticDataTable();
             int fullRowsCount = AssociatedGridView.GetStaticDataTable().Rows.Count;
             int firstRow = (AssociatedGridView.PageIndex * AssociatedGridView.PageSize) + 1;
             int lastRow = Math.Min(fullRowsCount, firstRow + AssociatedGridView.PageSize - 1);

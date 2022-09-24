@@ -1,0 +1,17 @@
+﻿::-webkit-scrollbar{
+	width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(50,50,50,0.8);
+    border-radius: 25px;
+}
+body{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+}
