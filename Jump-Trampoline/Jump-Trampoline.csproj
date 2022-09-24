@@ -140,6 +140,8 @@
     <Content Include="css\jquery.autocomplete.css" />
     <Content Include="css\themes.css" />
     <Content Include="imagenes\jumping-fondo.jpg" />
+    <Content Include="imagenes\logoJT.jfif" />
+    <Content Include="imagenes\logoKF.jfif" />
     <Content Include="imagenes\usuarioDefault.png" />
     <Content Include="js\bootstrap-tour.js" />
     <Content Include="js\bootstrap.min.js" />

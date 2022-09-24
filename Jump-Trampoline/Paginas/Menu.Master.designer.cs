@@ -58,24 +58,6 @@ namespace Jump_Trampoline.Paginas {
         protected global::System.Web.UI.WebControls.HiddenField hfPosition;
 
         /// <summary>
-        /// Control separador.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl separador;
-
-        /// <summary>
-        /// Control imgLogoClase.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgLogoClase;
-
-        /// <summary>
         /// Control titulo.
         /// </summary>
         /// <remarks>

@@ -104,5 +104,21 @@ namespace Jump_Trampoline.Paginas {
         protected void btnGuardar_Click(object sender, EventArgs e) {
 
         }
+
+        protected void btnEliminarVideo_Click(object sender, EventArgs e) {
+            try {
+                using (var db = new BdModel()) {
+                    int idVideo = int.Parse(hfIdEliminarVideo.Value);
+                    VideosYoutube video = db.VideosYoutube.Find(idVideo);
+                    db.VideosYoutube.Remove(video);
+                    db.SaveChanges();
+                    TraerVideos();
+                    Mensaje.Success(this, "Video eliminado correctamente.");
+                }
+            } catch (Exception ex) {
+                Mensaje.Danger(this,"NO se pudo eliminar el video :"+ ex.ToString());
+            }
+            
+        }
     }
 }

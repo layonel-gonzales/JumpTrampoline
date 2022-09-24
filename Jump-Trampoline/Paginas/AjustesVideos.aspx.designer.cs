@@ -103,6 +103,33 @@ namespace Jump_Trampoline.Paginas {
         protected global::System.Web.UI.WebControls.HiddenField hfIdEditarVideo;
 
         /// <summary>
+        /// Control lbNombreVideo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbNombreVideo;
+
+        /// <summary>
+        /// Control hfIdEliminarVideo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfIdEliminarVideo;
+
+        /// <summary>
+        /// Control btnEliminarVideo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminarVideo;
+
+        /// <summary>
         /// Control btnAgregar.
         /// </summary>
         /// <remarks>

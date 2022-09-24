@@ -76,6 +76,12 @@
               $('#advCodigo').addClass('d-none');
           }
       }
+
+      function eliminarVideo(id, nombre) {
+          $('#modalEstaSeguro').modal('show');
+          $('#<%=hfIdEliminarVideo.ClientID%>').val(id);
+          $('#<%=lbNombreVideo.ClientID%>').text(nombre);
+      }
   </script>
 
   <div class="row p-3">
@@ -161,6 +167,32 @@
     </div>
   </div>
 
+  <!-- MODAL ¿ESTÁ SEGURO? -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="modalEstaSeguro">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">¿Está seguro...</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            ... de eliminar el video <b runat="server" id="lbNombreVideo">Video</b>?<br />
+            no podra volverlo a visualizar.
+          </p>
+          <asp:HiddenField runat="server" ID="hfIdEliminarVideo" Value="-1" />
+        </div>
+        <div class="modal-footer">
+          <asp:Button runat="server" CssClass="btn btn-danger" Text="Sí, estoy seguro"
+            ID="btnEliminarVideo" OnClick="btnEliminarVideo_Click" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- MODAL ADVERTENCIAS -->
   <div class="modal fade" tabindex="-1" role="dialog" id="modalAdvertencias">
     <div class="modal-dialog modal-sm" role="document">
@@ -207,7 +239,7 @@
      <asp:GridView ID="grdVideo" CssClass="table table-hover"
        runat="server" AutoGenerateColumns="false" HeaderStyle-CssClass=""
        OnRowCommand="grdVideo_RowCommand" GridLines="None" OnRowCreated="grdVideo_RowCreated"
-       AllowPaging="true" PageSize="15" AllowSorting="true" OnSorting="grdVideo_Sorting"
+       AllowPaging="true" PageSize="10" AllowSorting="true" OnSorting="grdVideo_Sorting"
        PagerStyle-CssClass="page-item" PagerSettings-Mode="NumericFirstLast"
        OnPageIndexChanging="grdVideo_PageIndexChanging">
        <Columns>
@@ -219,7 +251,7 @@
                <asp:LinkButton ID="btnEditar" runat="server" CommandName="Editar" CommandArgument='<%#Eval("Id")%>' data-toggle="tooltip" title="Editar">
                    <i class="far fa-edit action-icon"></i>
                </asp:LinkButton>
-               <i style="padding-left: 11px; padding-right: 11px;" class="far fa-times action-icon ml-2 cursor-pointer" 
+               <i style="padding-left: 11px; padding-right: 11px;" class="fas fa-times action-icon ml-2 cursor-pointer" 
                   onclick="eliminarVideo(<%#Eval("Id")%>,'<%#Eval("Nombre").ToString()%>')" data-toggle="tooltip" title="Eliminar">
                </i>
              </div>
