@@ -182,6 +182,10 @@
     <Compile Include="Migrations\202209210221128_SeAgregaIndEstadoTablaVideo.designer.cs">
       <DependentUpon>202209210221128_SeAgregaIndEstadoTablaVideo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209250117130_CamposTablaClase.cs" />
+    <Compile Include="Migrations\202209250117130_CamposTablaClase.designer.cs">
+      <DependentUpon>202209250117130_CamposTablaClase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Paginas\AjustesVideos.aspx.cs">
       <DependentUpon>AjustesVideos.aspx</DependentUpon>
@@ -266,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209210221128_SeAgregaIndEstadoTablaVideo.resx">
       <DependentUpon>202209210221128_SeAgregaIndEstadoTablaVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209250117130_CamposTablaClase.resx">
+      <DependentUpon>202209250117130_CamposTablaClase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

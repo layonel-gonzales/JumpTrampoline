@@ -23,9 +23,7 @@
                      </div>
                    </div>
                 </div>
-                <div id="contenedorClases">
-                    
-                </div>
+                <div class="m-3" id="contenedorClases" runat="server"></div>
            </div>
        </ContentTemplate>
    </asp:UpdatePanel>

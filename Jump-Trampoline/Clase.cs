@@ -23,6 +23,17 @@ namespace Jump_Trampoline
         public DateTime? HoraTermino { get; set; }      
 
         public int? Precio { get; set; }
+
+        public string Dias { get; set; }
+
+        public string CodigoUbicacion{ get; set; }
         
+        public string TipoClase { get; set; }
+
+        public int? Comuna { set; get; }
+
+        public string CupoOcupado { get; set; }
+
+        public string IndEstado { get; set; }
     }
 }
