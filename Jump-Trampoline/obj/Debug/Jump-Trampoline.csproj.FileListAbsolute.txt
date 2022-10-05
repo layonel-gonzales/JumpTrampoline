@@ -175,3 +175,4 @@ C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.dll
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.pdb
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.CamposTablaClase.resources
+C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.CambioTablaUsuario.resources

@@ -89,8 +89,8 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
-      <HintPath>packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    <Reference Include="QRCoder, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.4.1\lib\net40\QRCoder.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
@@ -142,6 +142,7 @@
     <Content Include="imagenes\jumping-fondo.jpg" />
     <Content Include="imagenes\logoJT.jfif" />
     <Content Include="imagenes\logoKF.jfif" />
+    <Content Include="imagenes\trampolin.png" />
     <Content Include="imagenes\usuarioDefault.png" />
     <Content Include="js\bootstrap-tour.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -154,7 +155,9 @@
     <Content Include="js\jquery.autocomplete.pack.js" />
     <Content Include="js\js.cookie.min.js" />
     <Content Include="js\utils.js" />
+    <Content Include="Paginas\AjustesClases.aspx" />
     <Content Include="Paginas\AjustesVideos.aspx" />
+    <Content Include="Paginas\EditarPerfil.aspx" />
     <Content Include="Paginas\Home.aspx" />
     <Content Include="Paginas\InicioSesion.aspx" />
     <Content Include="Paginas\Menu.Master" />
@@ -186,13 +189,31 @@
     <Compile Include="Migrations\202209250117130_CamposTablaClase.designer.cs">
       <DependentUpon>202209250117130_CamposTablaClase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210050223314_CambioTablaUsuario.cs" />
+    <Compile Include="Migrations\202210050223314_CambioTablaUsuario.designer.cs">
+      <DependentUpon>202210050223314_CambioTablaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Paginas\AjustesClases.aspx.cs">
+      <DependentUpon>AjustesClases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\AjustesClases.aspx.designer.cs">
+      <DependentUpon>AjustesClases.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\AjustesVideos.aspx.cs">
       <DependentUpon>AjustesVideos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Paginas\AjustesVideos.aspx.designer.cs">
       <DependentUpon>AjustesVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\EditarPerfil.aspx.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\EditarPerfil.aspx.designer.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -273,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209250117130_CamposTablaClase.resx">
       <DependentUpon>202209250117130_CamposTablaClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210050223314_CambioTablaUsuario.resx">
+      <DependentUpon>202210050223314_CambioTablaUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

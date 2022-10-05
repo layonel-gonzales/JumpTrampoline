@@ -33,6 +33,10 @@ namespace Jump_Trampoline
 
         public string Contrasena { get; set; }
 
+        public string Direccion { get; set; }
+
+        public string Comuna { get; set; }
+
         public DateTime? FechaCreacion { get; set; }
 
         public DateTime? FechaModificacion { get; set; }

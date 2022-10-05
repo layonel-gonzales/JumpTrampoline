@@ -85,7 +85,7 @@
   </script>
 
   <div class="row p-3">
-   <div class="col-md-6">
+   <div class="col-md-4">
      <h6 class="text-600">Ingresar nuevo Video:</h6>
      <div class="form-row">
        <div class="form-group col-md-6">
@@ -101,7 +101,7 @@
   
        <div class="form-group col-md-12">
          <label>Url :</label>
-         <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control" Rows="4" style="resize:none;" TextMode="MultiLine"></asp:TextBox>
+         <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control" Rows="6" style="resize:none;" TextMode="MultiLine"></asp:TextBox>
          <asp:RequiredFieldValidator ID="rfvUrl" runat="server"
            ControlToValidate="txtUrl" CssClass="error-input" Display="Dynamic"
            ErrorMessage="Debe ingresar la URL del video"
@@ -119,6 +119,51 @@
     
     <div class="espacio"></div>
   </div>
+
+  <div class="col-md-8">
+    <div class="row no-gutters mb-2">
+      <div class="input-group col">
+        <asp:TextBox runat="server" ID="txtBuscarVideo" CssClass="form-control"
+          placeholder="Buscar por nombre de Video" onfocus="cambiarBordeR()" onfocusout="cambiarBordeO()" 
+          onkeyup="mostrarOcultar()" Style="border-right: none; box-shadow: none;">
+        </asp:TextBox>
+        <a id="btnLimpiarBuscar" class="input-group-append ">
+          <span class="input-group-text"><i class="fas fa-times" data-toggle="tooltip" title="Borrar"></i></span>
+        </a>
+        <asp:LinkButton runat="server" ID="btnBuscarVideo" CssClass="input-group-append"
+          OnClick="btnBuscarVideo_Click">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+        </asp:LinkButton>
+     </div>
+   </div>
+  
+     <asp:GridView ID="grdVideo" CssClass="table table-hover"
+       runat="server" AutoGenerateColumns="false" HeaderStyle-CssClass=""
+       OnRowCommand="grdVideo_RowCommand" GridLines="None" OnRowCreated="grdVideo_RowCreated"
+       AllowPaging="true" PageSize="10" AllowSorting="true" OnSorting="grdVideo_Sorting"
+       PagerStyle-CssClass="page-item" PagerSettings-Mode="NumericFirstLast"
+       OnPageIndexChanging="grdVideo_PageIndexChanging">
+       <Columns>
+         <asp:BoundField HeaderText="Nombre" DataField="Nombre" SortExpression="Nombre" />
+         <asp:BoundField HeaderText="Url" DataField="Url" SortExpression="Url" />
+         <asp:TemplateField HeaderText="Acciones" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
+           <ItemTemplate>
+             <div style="width: 80px;" class='<%#Eval("IndEstado").ToString() == "V" ? "" : "d-none" %>'>
+               <asp:LinkButton ID="btnEditar" runat="server" CommandName="Editar" CommandArgument='<%#Eval("Id")%>' data-toggle="tooltip" title="Editar"><i class="far fa-edit action-icon"></i></asp:LinkButton>
+               <i style="padding-left: 11px; padding-right: 11px;" class="fas fa-times action-icon ml-2 cursor-pointer" 
+                  onclick="eliminarVideo(<%#Eval("Id")%>,'<%#Eval("Nombre").ToString()%>')" data-toggle="tooltip" title="Eliminar">
+               </i>
+             </div>
+             </div>
+           </ItemTemplate>
+           <ItemStyle CssClass="text-center" />
+         </asp:TemplateField>
+       </Columns>
+       <EmptyDataTemplate>
+         <asp:Label runat="server" Text="No se encontraron Videos" />
+       </EmptyDataTemplate>
+     </asp:GridView>
+   </div>
 
   <!-- MODAL EDITAR DEPOSITO -->
   <div class="modal fade" id="modalEditarVideo" >
@@ -219,51 +264,6 @@
     </div>
   </div>
   
-  <div class="col-md-6">
-    <div class="row no-gutters mb-2">
-      <div class="input-group col">
-        <asp:TextBox runat="server" ID="txtBuscarVideo" CssClass="form-control"
-          placeholder="Buscar por nombre de Video" onfocus="cambiarBordeR()" onfocusout="cambiarBordeO()" 
-          onkeyup="mostrarOcultar()" Style="border-right: none; box-shadow: none;">
-        </asp:TextBox>
-        <a id="btnLimpiarBuscar" class="input-group-append ">
-          <span class="input-group-text"><i class="fas fa-times" data-toggle="tooltip" title="Borrar"></i></span>
-        </a>
-        <asp:LinkButton runat="server" ID="btnBuscarVideo" CssClass="input-group-append"
-          OnClick="btnBuscarVideo_Click">
-            <span class="input-group-text"><i class="fas fa-search"></i></span>
-        </asp:LinkButton>
-     </div>
-   </div>
   
-     <asp:GridView ID="grdVideo" CssClass="table table-hover"
-       runat="server" AutoGenerateColumns="false" HeaderStyle-CssClass=""
-       OnRowCommand="grdVideo_RowCommand" GridLines="None" OnRowCreated="grdVideo_RowCreated"
-       AllowPaging="true" PageSize="10" AllowSorting="true" OnSorting="grdVideo_Sorting"
-       PagerStyle-CssClass="page-item" PagerSettings-Mode="NumericFirstLast"
-       OnPageIndexChanging="grdVideo_PageIndexChanging">
-       <Columns>
-         <asp:BoundField HeaderText="Nombre" DataField="Nombre" SortExpression="Nombre" />
-         <asp:BoundField HeaderText="Url" DataField="Url" SortExpression="Url" />
-         <asp:TemplateField HeaderText="Acciones" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-           <ItemTemplate>
-             <div style="width: 80px;" class='<%#Eval("IndEstado").ToString() == "V" ? "" : "d-none" %>'>
-               <asp:LinkButton ID="btnEditar" runat="server" CommandName="Editar" CommandArgument='<%#Eval("Id")%>' data-toggle="tooltip" title="Editar">
-                   <i class="far fa-edit action-icon"></i>
-               </asp:LinkButton>
-               <i style="padding-left: 11px; padding-right: 11px;" class="fas fa-times action-icon ml-2 cursor-pointer" 
-                  onclick="eliminarVideo(<%#Eval("Id")%>,'<%#Eval("Nombre").ToString()%>')" data-toggle="tooltip" title="Eliminar">
-               </i>
-             </div>
-             </div>
-           </ItemTemplate>
-           <ItemStyle CssClass="text-center" />
-         </asp:TemplateField>
-       </Columns>
-       <EmptyDataTemplate>
-         <asp:Label runat="server" Text="No se encontraron Videos" />
-       </EmptyDataTemplate>
-     </asp:GridView>
-   </div>
   </div>
 </asp:Content>

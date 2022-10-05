@@ -14,12 +14,13 @@
     <link rel="stylesheet" type="text/css" href="../css/estilo.css?v='v.0.1'" />
     <link rel="stylesheet" type="text/css" href="../css/all.min.css" />
     <!--JQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script defer="defer" src="../js/jquery-ui.min.js?v='v.0.1'" type="text/javascript"></script>
     <script defer="defer" src="../js/chosen.jquery.js?v='v.0.1'"></script>   
     <!--Popper.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>    
     <!--Bootstrap JS-->
+    
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <script defer="defer" src="../js/bootstrap-tour.js" type="text/javascript"></script>            
     <!-- Chart.js -->
@@ -153,7 +154,7 @@
         <div class="col pt-1">
           <div runat="server" class="nombre dropdown-toggle cursor-pointer" id="lbNombreUsuario" data-toggle="dropdown">Usuario<i class="fas fa-caret-down ml-2"></i></div>
           <div class="dropdown-menu">
-            <asp:HyperLink runat="server" CssClass="dropdown-item" NavigateUrl="#"><i class="fas fa-user-cog mr-2"></i>Perfil</asp:HyperLink>
+            <asp:HyperLink runat="server" CssClass="dropdown-item" NavigateUrl="~/Paginas/EditarPerfil.aspx"><i class="fas fa-user-cog mr-2"></i>Perfil</asp:HyperLink>
             <asp:HyperLink runat="server" ID="linkCladses" CssClass="dropdown-item" NavigateUrl="#"><i class="fas fa-building mr-2"></i>Cambiar clase</asp:HyperLink>
             <div class="dropdown-divider"></div>
             <asp:LinkButton runat="server" ID="btnCerrarSesion" CssClass="dropdown-item" OnClick="btnCerrarSesion_Click"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión</asp:LinkButton>
@@ -167,7 +168,8 @@
           <a href="Home.aspx" runat="server" id="linkHome"><i class="fas fa-home"></i>Home</a>
           <a href="Clases.aspx" runat="server" id="linkClases"><i class="fas fa-home"></i>Clases</a>
           
-          <a href="AjustesVideos.aspx" runat="server" id="A1"><i class="fas fa-home"></i>Mantenedor-Videos</a>    
+          <a href="AjustesVideos.aspx" runat="server" id="A1"><i class="fas fa-home"></i>Mantenedor-Videos</a>
+          <a href="AjustesClases.aspx" runat="server" id="A2"><i class="fas fa-home"></i>Mantenedor-Clases</a>  
 
           <div class="espacio"></div>
       </div>
