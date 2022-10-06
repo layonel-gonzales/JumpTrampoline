@@ -263,7 +263,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                  <p>Puede escanear este código QR desde la app móvil JumpTrampoline para iniciar sesión.</p>
+                                  <span>Puede escanear este código QR desde la app móvil JumpTrampoline para iniciar sesión.</span>
                                   <asp:Image ID="imagenQR" runat="server" style="width: 100%; height: 100%;" />
                                 </div>
 
