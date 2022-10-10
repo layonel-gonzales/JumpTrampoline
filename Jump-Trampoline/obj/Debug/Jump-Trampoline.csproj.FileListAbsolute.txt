@@ -169,10 +169,10 @@ C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\bin\Micros
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.AssemblyReference.cache
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.InitialCreate.resources
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.SeAgregaIndEstadoTablaVideo.resources
+C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.CamposTablaClase.resources
+C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.CambioTablaUsuario.resources
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.GenerateResource.cache
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.CoreCompileInputs.cache
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.csproj.CopyComplete
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.dll
 C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump-Trampoline.pdb
-C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.CamposTablaClase.resources
-C:\Users\layon\OneDrive\Escritorio\Proyecto Trampolin\Jump-Trampoline\obj\Debug\Jump_Trampoline.Migrations.CambioTablaUsuario.resources

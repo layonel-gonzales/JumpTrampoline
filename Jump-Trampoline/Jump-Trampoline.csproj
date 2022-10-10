@@ -164,6 +164,7 @@
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Paginas\RecuperarContrasena.aspx" />
     <Content Include="Paginas\Clases.aspx" />
+    <Content Include="Paginas\WebForm1.aspx" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
@@ -249,6 +250,13 @@
     </Compile>
     <Compile Include="Paginas\Clases.aspx.designer.cs">
       <DependentUpon>Clases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Plantillas\PagerTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
