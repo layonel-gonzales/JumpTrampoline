@@ -14,6 +14,7 @@ using Jump_Trampoline.UserControl;
 namespace Jump_Trampoline.Paginas {
     public partial class EditarPerfil : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
+            if(Sesion.IdUsuario == 0) Response.Redirect("InicioSesion.aspx");
             CargarDatos();
         }
 

@@ -12,7 +12,8 @@ namespace Jump_Trampoline.Paginas{
     public partial class InicioSesion : System.Web.UI.Page{
         protected void Page_Load(object sender, EventArgs e){
           Page.DataBind();
-          if (!string.IsNullOrWhiteSpace(Request.QueryString["cs"])) Mensaje.Generar(this, "Su sesión ha expirado, por favor vuelva a iniciar sesión.");
+            string c = HttpContext.Current.Response.Cookies["ASP.NET_SessionId"].Value;
+            if (c == "") Mensaje.Generar(this, "Su sesión ha expirado, por favor vuelva a iniciar sesión.");
         }
 
         protected void btnIniciarSesion_Click(object sender, EventArgs e) {

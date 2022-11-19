@@ -28,7 +28,7 @@ namespace Jump_Trampoline
 
         public string CodigoUbicacion{ get; set; }
         
-        public string TipoClase { get; set; }
+        public int TipoClase { get; set; }
 
         public int? Comuna { set; get; }
 

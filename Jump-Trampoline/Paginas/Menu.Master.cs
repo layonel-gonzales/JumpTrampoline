@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jump_Trampoline.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,7 +24,7 @@ namespace Jump_Trampoline.Paginas
     }
 
     protected void btnCerrarSesion_Click(object sender, EventArgs e) {
-
+      Sesion.CerrarSesion(false);
     }
   }
 }

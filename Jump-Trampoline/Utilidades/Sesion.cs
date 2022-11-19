@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using static Jump_Trampoline.Utilidades.Constantes;
+using System.Web.Security;
 
 namespace Jump_Trampoline.Utilidades {
   public class Sesion {
@@ -39,12 +41,39 @@ namespace Jump_Trampoline.Utilidades {
     }
 
     public static void CerrarSesion(bool mostrarMensaje = true) {
+      Sesion.IdUsuario = 0;
       HttpContext.Current.Session.Clear();
       HttpContext.Current.Session.Abandon();
       HttpContext.Current.Response.Cookies["ASP.NET_SessionId"].Value = string.Empty;
       HttpContext.Current.Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddMonths(-10);
       HttpContext.Current.Response.Redirect("InicioSesion.aspx" + (mostrarMensaje ? "?cs=true" : ""));
+
     }
 
+        public static bool ValidarSesion() {
+            var Session = HttpContext.Current.Session;
+            var Request = HttpContext.Current.Request;
+            var Response = HttpContext.Current.Response;
+
+            if (Session.IsNewSession) {
+                string cookieHeader = Request.Headers["Cookie"];
+                if ((null != cookieHeader) && (cookieHeader.IndexOf("ASP.NET_SessionId") >= 0)) {
+                    CerrarSesion();
+                    return false;
+                }
+            }
+
+            if (Session.Contents.Count == 0) {
+                CerrarSesion();
+                return false;
+            }
+
+            if (Session["IdUsuario"] == null || Session["IdUsuario"].ToString() == "") {
+                CerrarSesion();
+                return false;
+            }
+
+            return false;
+        }
   }
 }

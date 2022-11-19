@@ -164,7 +164,6 @@
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Paginas\RecuperarContrasena.aspx" />
     <Content Include="Paginas\Clases.aspx" />
-    <Content Include="Paginas\WebForm1.aspx" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
@@ -193,6 +192,14 @@
     <Compile Include="Migrations\202210050223314_CambioTablaUsuario.cs" />
     <Compile Include="Migrations\202210050223314_CambioTablaUsuario.designer.cs">
       <DependentUpon>202210050223314_CambioTablaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211190034518_TablaTipoClase.cs" />
+    <Compile Include="Migrations\202211190034518_TablaTipoClase.designer.cs">
+      <DependentUpon>202211190034518_TablaTipoClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211190039357_CambioTipoClaseTablaClase.cs" />
+    <Compile Include="Migrations\202211190039357_CambioTipoClaseTablaClase.designer.cs">
+      <DependentUpon>202211190039357_CambioTipoClaseTablaClase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Paginas\AjustesClases.aspx.cs">
@@ -251,16 +258,10 @@
     <Compile Include="Paginas\Clases.aspx.designer.cs">
       <DependentUpon>Clases.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Paginas\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Paginas\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Plantillas\PagerTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sede.cs" />
+    <Compile Include="TipoClase.cs" />
     <Compile Include="TipoUsuario.cs" />
     <Compile Include="UserControl\Mensaje.ascx.cs">
       <DependentUpon>Mensaje.ascx</DependentUpon>
@@ -271,6 +272,7 @@
     </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="Utilidades\Constantes.cs" />
+    <Compile Include="Utilidades\ConsultasStaticas.cs" />
     <Compile Include="Utilidades\Encrypt.cs" />
     <Compile Include="Utilidades\Errores.cs" />
     <Compile Include="Utilidades\Extensiones.cs" />
@@ -289,10 +291,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ConsultasEstaticas\" />
-    <Folder Include="ConsultasGenerales\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202209192147259_InitialCreate.resx">
       <DependentUpon>202209192147259_InitialCreate.cs</DependentUpon>
@@ -305,6 +304,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202210050223314_CambioTablaUsuario.resx">
       <DependentUpon>202210050223314_CambioTablaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211190034518_TablaTipoClase.resx">
+      <DependentUpon>202211190034518_TablaTipoClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211190039357_CambioTipoClaseTablaClase.resx">
+      <DependentUpon>202211190039357_CambioTipoClaseTablaClase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

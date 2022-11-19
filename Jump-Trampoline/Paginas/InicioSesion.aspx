@@ -118,7 +118,7 @@
             </div>
             <div class="form-group col-12">
               <button class="btn btn-primary text-uppercase button g-recaptcha" data-sitekey="6LfKaAMbAAAAAB-4V3vr281zT6ISGC1dx3QS5G9M" data-callback='onSubmit' data-action='submit'>Iniciar sesión</button>
-              <asp:Button ID="btnIniciarSesion" runat="server" ValidationGroup="IngresarUsuario" CssClass=""
+              <asp:Button ID="btnIniciarSesion" runat="server" ValidationGroup="IngresarUsuario" CssClass="d-none"
                  Text="Iniciar sesión" OnClick="btnIniciarSesion_Click" />
             </div>
 
